@@ -1,0 +1,345 @@
+#: import googletrans googletrans
+<MDRaisedButton>
+    background_normal: ''
+    background_color:app.theme_cls.primary_color
+    #background_down:app.theme_cls.primary_light
+<NavigationDrawer>:
+    
+    ScreenManager:
+        id:sm
+        
+        Screen:
+            name:'home'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Navigation Drawer"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                Widget:
+
+        Screen:
+            name:'translate'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Navigation Drawer"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                TransLayout:                      
+          
+            
+
+
+
+        Screen:
+            name:'Textformat'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Navigation Drawer"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+
+                TEXTFormatLayout:
+                
+    MDNavigationDrawer:
+        id: nav_drawer
+        ContentNavigationDrawer:
+            id: content_drawer
+            sm:sm
+            
+
+
+<ContentNavigationDrawer>
+
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            size_hint_y: None
+            height: "200dp"
+            canvas:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                id: top_box
+                size_hint_y: None
+                height: "200dp"
+                x: root.parent.x
+                pos_hint: {"top": 1}
+
+                FitImage:
+                    source: "logo.jfif"
+            MDIconButton:
+                icon: "close"
+                x: root.parent.x + dp(10)
+                pos_hint: {"top": 1}
+                on_release: root.parent.set_state()
+            MDLabel:
+                markup: True
+                text: "app version "
+                x: root.parent.x + dp(10)
+                y: root.height - top_box.height + dp(10)
+                size_hint_y: None
+                height: self.texture_size[1]
+        ScrollView:
+            pos_hint: {"top": 1}
+
+            MDGridLayout:
+                id: box_item
+                cols: 1
+                adaptive_height: True
+                OneLineIconListItem:
+                    text:"HOME"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+                OneLineIconListItem:
+                    text:"Image Edit"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+
+                OneLineIconListItem:
+                    text:"Recognise Text"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+                OneLineIconListItem:
+                    text:"Translate"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                       
+                        root.parent.set_state("close")
+                        root.sm.current='translate'
+
+                OneLineIconListItem:
+                    text:"Text Format and Analyse"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                       
+                        root.parent.set_state("close")
+                        root.sm.current='Textformat'
+                        
+                OneLineIconListItem:
+                    text:"Speech Tool"
+                    icon:"settings-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+                OneLineIconListItem:
+                    text:"Feedback"
+                    icon:"settings-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+
+##translate Layout
+<TransLayout>
+    FloatLayout:
+        size:root.width,root.height
+        
+        Spinner:
+            id:spin2
+            size_hint: 0.2,0.06
+            pos_hint: {"x":0.15,"top":0.8}
+            background_normal: ''
+            background_color:app.theme_cls.primary_color
+            text: 'Source Lang'
+            values: list(i.capitalize() for i in  googletrans.LANGUAGES.values())
+            #values:['English','Tamil','Hindi','Telugu','Malayalam']
+    
+            
+        Spinner:
+            id:spin1
+            size_hint: 0.2,0.06
+            pos_hint: {"x":0.65,"top":0.8}
+            background_normal: ''
+            background_color:app.theme_cls.primary_color
+            text: 'Dest Lang'
+            values: list(i.capitalize() for i in  googletrans.LANGUAGES.values())
+            #values:['English','Tamil','Hindi','Telugu','Malayalam','French']
+
+        MDRaisedButton:
+            text:"Copy to clipboard"
+            size_hint:0.16,0.06
+            pos_hint:{"x":0.43,"top":0.4}
+            on_press:root.copyClip()
+            
+        MDRaisedButton:
+            text:'Translate'
+            size_hint:0.2,0.06
+            pos_hint:{"top":0.4,"x":0.15}
+            on_press:root.translate()
+
+        MDRaisedButton:
+            text:'Detect Language'
+            size_hint:0.2,0.06
+            pos_hint:{"top":0.4,"x":0.65}
+            on_press:root.detect()
+
+        TextInput:
+            id:src
+            text:'I am  spider man'
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.73,"x":0.05}
+            font_size:20
+            font_name:"arial-unicode-ms.ttf"
+
+        TextInput:
+            id:dest
+            text:'Here is the result'
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.73,"x":0.55}
+            #font_name: "l_10646.ttf"
+            font_size:20
+            #font_name:"segoeui.ttf"
+            font_name:"arial-unicode-ms.ttf"
+
+        Label:
+            size: self.texture_size
+            id:detect
+            text:'The source language is detected here'
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.37,"x":0.3}
+            color:0,0,0,1
+
+        Label:
+            text:'TRANSLATE'
+            size_hint:0.4,0.2
+            pos_hint:{"top":0.97,"x":0.3}
+            color:0,0,0,1
+
+
+##TEXT to text layout
+    
+<TEXTFormatLayout>
+    FloatLayout:
+        size:root.width,root.height
+        TextInput:
+            id:ques
+            size_hint:0.7,0.3
+            pos_hint:{"x":0.05,"top":0.97}
+            text: "Type the text to be formatted"
+        TextInput:
+            id:res
+            size_hint:0.7,0.3
+            pos_hint:{"x":0.05,"top":0.35}
+            text:"Here comes the result"
+        MDRaisedButton:
+            text:"Copy to clipboard"
+            color:1,1,1,1
+            size_hint:0.16,0.06
+            pos_hint:{"x":0.1,"top":0.65}
+            on_press:root.copyClip()
+        MDRaisedButton:
+            text:"Work on result"
+            color:1,1,1,1
+            size_hint:0.15,0.06
+            on_press:root.CpToQ()
+            pos_hint:{"x":0.35,"top":0.65}
+            
+        Label:
+            text:"Capitalise Options"
+            pos_hint:{"x":0.1,"top":0.58}
+            size_hint:0.1,0.06
+            color:[0,0,0,1]
+           
+        MDRaisedButton:
+            pos_hint:{"x":0.25,"top":0.58}
+            text:"Upper Case"
+            size_hint:0.11,0.06
+            color:1,1,1,1
+            on_press:root.upperCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.36,"top":0.58}
+            text:"Lower Case"
+            size_hint:0.11,0.06
+            color:1,1,1,1
+            on_press:root.lowerCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.47,"top":0.58}
+            text:"Sentence Case"
+            color:1,1,1,1
+            size_hint:0.15,0.06
+            on_press:root.SenCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.62,"top":0.58}
+            text:"InitCap"
+            size_hint:0.11,0.06
+            color:1,1,1,1
+            on_press:root.InitCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.1,"top":0.51}
+            text:"Replace"
+            color:1,1,1,1
+            size_hint:0.11,0.06
+            on_press:root.replacer()
+        Label:
+            pos_hint:{"x":0.42,"top":0.51}
+            size_hint:0.02,0.06
+            text:"With "
+            color:[0,0,0,1]
+        TextInput:
+            pos_hint:{"x":0.25,"top":0.51}
+            size_hint:0.15,0.06
+            id:finder
+        TextInput:
+            pos_hint:{"x":0.45,"top":0.51}
+            size_hint:0.15,0.06
+            id:replace
+        CheckBox:
+            id:case
+            pos_hint:{"x":0.83,"top":0.51}
+            size_hint:0.05,0.06
+            color:[0,0,0,1]
+        CheckBox:
+            id:whole
+            pos_hint:{"x":0.6,"top":0.51}
+            size_hint:0.05,0.06
+            color:[0,0,0,1]
+        Label:
+            pos_hint:{"x":0.65,"top":0.51}
+            size_hint:0.15,0.06
+            text:"Whole words only"
+            color:[0,0,0,1]
+        Label:
+            pos_hint:{"x":0.85,"top":0.51}
+            size_hint:0.15,0.06
+            text:"Ignore Case"
+            color:[0,0,0,1]
+        MDRaisedButton:
+            text:"Analyse"
+            color:1,1,1,1
+            size_hint:0.11,0.06
+            pos_hint:{"x":0.1,"top":0.43}
+            on_press:root.analyser()
+        
+            
+
+                    
+                
