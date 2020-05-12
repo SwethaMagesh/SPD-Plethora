@@ -1,0 +1,172 @@
+<NavigationDrawer>:
+    
+    ScreenManager:
+        id:sm
+        
+        Screen:
+            name:'home'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Plethora"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                Widget:
+        Screen:
+            name:'img'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Plethora"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                Button:
+                    text:'Image'
+
+        Screen:
+            name:'ocr'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Plethora"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                Button:
+                    text:'OCR'
+
+        Screen:
+            name:'translate'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Plethora"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                TransLayout:
+
+
+        Screen:
+            name:'Textformat'
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: "Plethora"
+                    md_bg_color: app.theme_cls.primary_color
+                    elevation: 10
+                    left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
+                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                TEXTFormatLayout:
+        
+    MDNavigationDrawer:
+        id: nav_drawer
+        ContentNavigationDrawer:
+            id: content_drawer
+            sm:sm
+
+
+<ContentNavigationDrawer>
+
+    BoxLayout:
+        orientation: 'vertical'
+        FloatLayout:
+            size_hint_y: None
+            height: "200dp"
+            canvas:
+                Color:
+                    rgba: app.theme_cls.primary_color
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            BoxLayout:
+                id: top_box
+                size_hint_y: None
+                height: "200dp"
+                x: root.parent.x
+                pos_hint: {"top": 1}
+                FitImage:
+                    source: "logo.jfif"
+            MDIconButton:
+                icon: "close"
+                x: root.parent.x + dp(10)
+                pos_hint: {"top": 1}
+                on_release: root.parent.set_state()
+            
+                
+                
+        ScrollView:
+            pos_hint: {"top": 1}
+
+            MDGridLayout:
+                id: box_item
+                cols: 1
+                adaptive_height: True
+                TwoLineListItem:                    
+                    text: "Plethora "
+                    secondary_text: "Version 1.0"
+                OneLineIconListItem:
+                    text:"HOME"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+                OneLineIconListItem:
+                    text:"Image Edit"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='img'
+
+                OneLineIconListItem:
+                    text:"Recognise Text"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='ocr'
+                OneLineIconListItem:
+                    text:"Translate"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                       
+                        root.parent.set_state("close")
+                        root.sm.current='translate'
+
+                OneLineIconListItem:
+                    text:"Text Format and Analyse"
+                    icon:"home-circle-outline"
+                    
+                    on_press:
+                       
+                        root.parent.set_state("close")
+                        root.sm.current='Textformat'
+                        
+                OneLineIconListItem:
+                    text:"Speech Tool"
+                    icon:"settings-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+                OneLineIconListItem:
+                    text:"Feedback"
+                    icon:"settings-outline"
+                    
+                    on_press:
+                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
