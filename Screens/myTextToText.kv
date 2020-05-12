@@ -1,0 +1,112 @@
+<MDRaisedButton>
+    size_hint:0.11,0.06
+    
+
+    
+<TEXTFormatLayout>
+    FloatLayout:
+        size:root.width,root.height
+        TextInput:
+            id:ques
+            size_hint:0.7,0.3
+            pos_hint:{"x":0.05,"top":0.97}
+            text: "Type the text to be formatted"
+        TextInput:
+            id:res
+            size_hint:0.7,0.3
+            pos_hint:{"x":0.05,"top":0.35}
+            text:"Here comes the result"
+        MDRaisedButton:
+            text:"Copy to clipboard"
+            color:1,1,1,1
+            size_hint:0.16,0.06
+            pos_hint:{"x":0.1,"top":0.65}
+            on_press:root.copyClip()
+        MDRaisedButton:
+            text:"Work on result"
+            color:1,1,1,1
+            size_hint:0.15,0.06
+            on_press:root.CpToQ()
+            pos_hint:{"x":0.35,"top":0.65}
+            
+        Label:
+            text:"Capitalise Options"
+            pos_hint:{"x":0.1,"top":0.58}
+            size_hint:0.1,0.06
+            color:[0,0,0,1]
+           
+        MDRaisedButton:
+            pos_hint:{"x":0.25,"top":0.58}
+            text:"Upper Case"
+            size_hint:0.10,0.06
+            color:1,1,1,1
+            on_press:root.upperCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.37,"top":0.58}
+            text:"Lower Case"
+            size_hint:0.10,0.06
+            color:1,1,1,1
+            on_press:root.lowerCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.48,"top":0.58}
+            text:"Sentence Case"
+            color:1,1,1,1
+            size_hint:0.14,0.06
+            on_press:root.SenCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.63,"top":0.58}
+            text:"InitCap"
+            size_hint:0.11,0.06
+            color:1,1,1,1
+            on_press:root.InitCap()
+        MDRaisedButton:
+            pos_hint:{"x":0.1,"top":0.51}
+            text:"Replace"
+            color:1,1,1,1
+            size_hint:0.11,0.06
+            on_press:root.replacer()
+        Label:
+            pos_hint:{"x":0.42,"top":0.51}
+            size_hint:0.02,0.06
+            text:"With "
+            color:[0,0,0,1]
+        TextInput:
+            pos_hint:{"x":0.25,"top":0.51}
+            size_hint:0.15,0.06
+            id:finder
+        TextInput:
+            pos_hint:{"x":0.45,"top":0.51}
+            size_hint:0.15,0.06
+            id:replace
+        CheckBox:
+            id:case
+            pos_hint:{"x":0.83,"top":0.51}
+            size_hint:0.05,0.06
+            color:[0,0,0,1]
+        CheckBox:
+            id:whole
+            pos_hint:{"x":0.6,"top":0.51}
+            size_hint:0.05,0.06
+            color:[0,0,0,1]
+        Label:
+            pos_hint:{"x":0.65,"top":0.51}
+            size_hint:0.15,0.06
+            text:"Whole words only"
+            color:[0,0,0,1]
+        Label:
+            pos_hint:{"x":0.85,"top":0.51}
+            size_hint:0.15,0.06
+            text:"Ignore Case"
+            color:[0,0,0,1]
+        MDRaisedButton:
+            text:"Analyse"
+            color:1,1,1,1
+            size_hint:0.11,0.06
+            pos_hint:{"x":0.1,"top":0.43}
+            on_press:root.analyser()
+        
+            
+           
+
+    
+    

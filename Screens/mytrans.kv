@@ -1,0 +1,84 @@
+#: import googletrans googletrans 
+<MDRaisedButton>
+    background_color: app.theme_cls.primary_color
+<SpinnerOption>
+    background_normal:''
+    color:(0,0,0,1)
+
+<Spinner>
+    #background_down:app.theme_cls.primary_dark
+    background_normal: ''
+    background_color:app.theme_cls.primary_color
+    
+    
+<TransLayout>
+    FloatLayout:
+        size:root.width,root.height
+        
+        Spinner:
+            id:spin2            
+            size_hint: 0.2,0.06
+            pos_hint: {"x":0.15,"top":0.8}
+            text: 'Source Lang'
+            values: list(i.capitalize() for i in  googletrans.LANGUAGES.values())
+            #values:['English','Tamil','Hindi','Telugu','Malayalam']
+    
+            
+        Spinner:
+            id:spin1
+            size_hint: 0.2,0.06            
+            pos_hint: {"x":0.65,"top":0.8}
+            text: 'Dest Lang'
+            values: list(i.capitalize() for i in  googletrans.LANGUAGES.values())
+            #values:['English','Tamil','Hindi','Telugu','Malayalam','French']
+
+        MDRaisedButton:
+            text:"Copy to clipboard"
+            size_hint:0.16,0.06
+            pos_hint:{"x":0.43,"top":0.4}
+            on_press:root.copyClip()
+            
+        MDRaisedButton:
+            text:'Translate'
+            size_hint:0.2,0.06
+            pos_hint:{"top":0.4,"x":0.15}
+            on_press:root.translate()
+
+        MDRaisedButton:
+            text:'Detect Language'
+            size_hint:0.2,0.06
+            pos_hint:{"top":0.4,"x":0.65}
+            on_press:root.detect()
+
+        TextInput:
+            id:src
+            text:'I am  spider man '
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.73,"x":0.05}
+            font_size:20
+            font_name:"arial-unicode-ms.ttf"
+
+        TextInput:
+            id:dest
+            text:'Here is the result'
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.73,"x":0.55}
+            font_size:20
+            font_name:"arial-unicode-ms.ttf"
+
+        Label:
+            #size: self.texture_size
+            id:detect
+            text:'The source language is detected here'
+            size_hint:0.4,0.3
+            pos_hint:{"top":0.37,"x":0.3}
+            color:0,0,0,1
+
+        Label:
+            text:'TRANSLATE'
+            size_hint:0.4,0.2
+            pos_hint:{"top":0.97,"x":0.3}
+            color:0,0,0,1            
+            
+
+            
