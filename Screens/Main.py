@@ -6,9 +6,11 @@ from kivy.lang import Builder
 Builder.load_file("mytrans.kv")
 Builder.load_file("myTextToText.kv")
 Builder.load_file("imageEdit.kv")
+Builder.load_file("imageText.kv")
 import TransKivy
 import textToText
 import ImageEdit
+import ImageText
 class NavigationDrawer(NavigationLayout):
     pass
 
