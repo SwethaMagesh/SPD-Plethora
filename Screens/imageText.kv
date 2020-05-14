@@ -1,0 +1,39 @@
+<ImageToText>:
+    textLbl:textLbl
+    label_wid1: my_image1
+    FloatLayout:
+        size:root.width,root.height
+        Image:
+            id: my_image1
+            source:'old.jpg'
+            size_hint:0.6,0.45
+            pos_hint:{"x":0.1,"top":0.95}
+        MDRaisedButton:
+            text:'Browse'
+            pos_hint:{"x":0.8,"top":0.9}
+            size_hint:0.1,0.05
+	        on_press: root.BrowseImage()
+        MDRaisedButton:
+            text:'Convert'
+            on_press:root.TextConversion()
+            pos_hint:{"x":0.8,"top":0.8}
+            size_hint:0.1,0.05	
+	    TextInput:
+	        id:textLbl
+	        text:"here comes the result"
+	        size_hint:0.6,0.45 
+	        pos_hint:{"x":0.05,"top":0.45}
+	    MDIconButton:
+	        icon:'text-to-speech'	   
+	        on_release: root.SpeechConversion()     
+	        pos_hint:{"x":0.8,"top":0.7}
+
+<SimplePopup>:
+    id:pop
+    size_hint: .4, .4
+    auto_dismiss: False
+    title: 'Text to Speech'
+    Button:
+        text: 'FIRST CONVERT YOUR IMAGE TO TEXT\n     -click to continue'
+        on_press: pop.dismiss()
+        
