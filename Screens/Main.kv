@@ -12,29 +12,29 @@
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 Widget:
         Screen:
             name:'img'
             BoxLayout:
                 orientation: 'vertical'
                 MDToolbar:
-                    title: "Plethora"
+                    title: " Edit Image"
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 ImageLayout1
         Screen:
             name:'ocr'
             BoxLayout:
                 orientation: 'vertical'
                 MDToolbar:
-                    title: "Plethora"
+                    title: "Text Recognise"
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 ImageToText:
 
         Screen:
@@ -42,11 +42,11 @@
             BoxLayout:
                 orientation: 'vertical'
                 MDToolbar:
-                    title: "Plethora"
+                    title: "Translate"
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 TransLayout:
 
 
@@ -59,7 +59,7 @@
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 TEXTFormatLayout:
 
         Screen:
@@ -67,11 +67,11 @@
             BoxLayout:
                 orientation: 'vertical'
                 MDToolbar:
-                    title: "Plethora"
+                    title: "Speech"
                     md_bg_color: app.theme_cls.primary_color
                     elevation: 10
                     left_action_items: [['menu', lambda x: nav_drawer.set_state("toggle")]]
-                    right_action_items: [['arrow-left', lambda x: app.back_to_home_screen()]]
+                    right_action_items: [['home-outline', lambda x: root.back_to_home_screen()]]
                 SpeechLayout:
         
         
@@ -107,13 +107,12 @@
                 icon: "close"
                 x: root.parent.x + dp(10)
                 pos_hint: {"top": 1}
-                on_release: root.parent.set_state()
+                on_press: root.parent.set_state()
             
                 
                 
         ScrollView:
             pos_hint: {"top": 1}
-
             MDGridLayout:
                 id: box_item
                 cols: 1
@@ -123,16 +122,11 @@
                     secondary_text: "Version 1.0"
                 OneLineIconListItem:
                     text:"HOME"
-                    icon:"home-circle-outline"
-                    
-                    on_press:
-                        
+                    on_press:                        
                         root.parent.set_state("close")
                         root.sm.current='home'
                 OneLineIconListItem:
                     text:"Image Edit"
-                    icon:"home-circle-outline"
-                    
                     on_press:
                         
                         root.parent.set_state("close")
@@ -140,43 +134,34 @@
 
                 OneLineIconListItem:
                     text:"Recognise Text"
-                    icon:"home-circle-outline"
-                    
-                    on_press:
-                        
+                    on_press:                        
                         root.parent.set_state("close")
                         root.sm.current='ocr'
                 OneLineIconListItem:
                     text:"Translate"
-                    icon:"home-circle-outline"
-                    
-                    on_press:
-                       
+                    on_press:                       
                         root.parent.set_state("close")
                         root.sm.current='translate'
 
                 OneLineIconListItem:
                     text:"Text Format and Analyse"
-                    icon:"home-circle-outline"
-                    
-                    on_press:
-                       
+                    on_press:                       
                         root.parent.set_state("close")
                         root.sm.current='Textformat'
                         
                 OneLineIconListItem:
                     text:"Speech Tool"
-                    icon:"settings-outline"
-                    
-                    on_press:
-                        
+                    on_press:                        
                         root.parent.set_state("close")
                         root.sm.current='speech'
                 OneLineIconListItem:
-                    text:"Feedback"
-                    icon:"settings-outline"
-                    
-                    on_press:
-                        
+                    text:"Feedback"                    
+                    on_press:                        
+                        root.parent.set_state("close")
+                        root.sm.current='home'
+
+                OneLineIconListItem:
+                    text:"Sign out"                    
+                    on_press:                        
                         root.parent.set_state("close")
                         root.sm.current='home'

@@ -7,8 +7,8 @@ from tkinter import filedialog
 import pyttsx3
 from kivy.uix.popup import Popup
 from kivy.uix.widget import Widget
-class SimplePopup(Popup):
-    pass
+from kivy.uix.label import Label
+
 class ImageToText(Widget):
     global text
     text=" "
@@ -18,13 +18,19 @@ class ImageToText(Widget):
         from PIL import Image
         global text
         pytesseract.pytesseract.tesseract_cmd=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-        image = Image.open(filename)
-        text = pytesseract.image_to_string(image)
-        text=text.replace('\n',' ')
-        self.textLbl.text=text
+        try:
+            image = Image.open(filename)
+            text = pytesseract.image_to_string(image)
+            text=text.replace('\n',' ')
+            self.textLbl.text=text
+        except:
+            pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
+            pop.open()
+            
     def SpeechConversion(self):
         if text==" ":
-            self.fire_popup()
+            pop=Popup(title='Some error occurred',content=Label(text='Try again',color=(1,1,1,1)),size_hint=(None,None),size=(350,100))
+            pop.open()
         else:
             engine = pyttsx3.init()
             engine.say(text)
@@ -36,6 +42,4 @@ class ImageToText(Widget):
         filename= filedialog.askopenfilename(initialdir="/",title="Select A file",filetype=(("jpeg files","*.jpg"),("all files","*.*")))
         #self.label.configure(text=self.filename)
         self.label_wid1.source=filename
-    def fire_popup(self):
-        pops=SimplePopup()
-        pops.open()
+    

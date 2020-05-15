@@ -1,7 +1,8 @@
 import speech_recognition as sr
 import pyttsx3
 from kivy.uix.widget import Widget
-
+from kivy.uix.popup import Popup
+from kivy.uix.label import Label
 
 class SpeechLayout(Widget):
     def change(self):
@@ -11,18 +12,22 @@ class SpeechLayout(Widget):
             self.ids.sm.current='second'
         
     def speakOut(self):
-        text=self.ids.tToS.text
-        engine = pyttsx3.init()
-        engine.say(text)
-        engine.setProperty('rate',120)
-        engine.setProperty('volume', 0.9)
-        engine.runAndWait()
+        try:
+            
+            text=self.ids.tToS.text
+            engine = pyttsx3.init()
+            engine.say(text)
+            engine.setProperty('rate',120)
+            engine.setProperty('volume', 0.9)
+            engine.runAndWait()
+        except:
+            pop=Popup(title='Some error occurred',content=Label(text='Try again',color=(1,1,1,1)),size_hint=(None,None),size=(350,100))
+            pop.open()
     
     def recog(self):
         
         r=sr.Recognizer()
-        with sr.Microphone() as source:
-            
+        with sr.Microphone() as source:            
             audio = r.listen(source)
             try:
                 text=r.recognize_google(audio)

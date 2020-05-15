@@ -14,7 +14,8 @@ import ImageEdit
 import ImageText
 import audio1
 class NavigationDrawer(NavigationLayout):
-    pass
+    def back_to_home_screen(self):
+        self.ids.sm.current='home'
 
 class ContentNavigationDrawer(BoxLayout):
     pass
