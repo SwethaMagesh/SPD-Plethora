@@ -1,5 +1,5 @@
 # SPD Plethora 
-ocr
+
 This app has various functions
 image editing
 image to text conversion
