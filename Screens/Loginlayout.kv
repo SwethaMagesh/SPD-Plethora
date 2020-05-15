@@ -1,0 +1,175 @@
+WindowManager:
+    id:sm
+    CreateAccountWindow:
+    LoginWindow:
+    NavScreen:
+    
+<Button>
+    background_normal:''
+    background_color:(1,1,1,1)
+    color:app.theme_cls.primary_color
+    background_down:'pink.png'
+<CreateAccountWindow>:
+    name: "create"
+
+    namee: namee
+    email: email
+    password: passw
+
+    FloatLayout:
+        cols:1
+
+        FloatLayout:
+            size: root.width, root.height/2
+
+            Label:
+                text: "Create an Account"
+                color:0,0,0,1
+                size_hint: 0.8, 0.2
+                pos_hint: {"x":0.1, "top":1}
+                
+
+            Label:
+                size_hint: 0.4,0.1
+                color:0,0,0,1
+                pos_hint: {"x":0, "top":0.8}
+                text: "Name: "
+                
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.8}
+                size_hint: 0.4, 0.1
+                id: namee
+                multiline: False
+                
+                
+
+            Label:
+                size_hint: 0.4,0.1
+                color:0,0,0,1
+                pos_hint: {"x":0, "top":0.67}
+                text: "Email: "
+                
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.67}
+                size_hint: 0.4, 0.1
+                id: email
+                multiline: False
+                
+
+            Label:
+                size_hint: 0.4,0.1
+                color:0,0,0,1
+                pos_hint: {"x":0, "top":0.54}
+                text: "Password: "
+                
+
+            TextInput:
+                pos_hint: {"x":0.5, "top":0.54}
+                size_hint: 0.4, 0.1
+                id: passw
+                multiline: False
+                password: True
+        Label:
+            text: "Already have an Account?"
+            pos_hint:{"x":0.15,"y":0.3}
+            color:0,0,0,1
+            size_hint:0.3,0.06
+        
+        MDRectangleFlatButton:
+            pos_hint:{"x":0.55,"y":0.3}
+            size_hint: 0.15, 0.06
+            text:" Log In"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.login()
+
+        MDRectangleFlatButton:
+            pos_hint:{"x":0.45,"y":0.2}
+            size_hint: 0.15, 0.06
+            text: "Submit"
+            on_release:
+                root.manager.transition.direction = "left"
+                root.submit()
+
+
+<LoginWindow>:
+    name: "login"
+
+    email: email
+    password: password
+
+    FloatLayout:
+        
+        Label:
+            text:"Login"
+            color:0,0,0,1
+            size_hint:0.8,0.2
+            pos_hint:{"x":0.1,"top":1}
+
+        Label:
+            text:"Email: "
+            color:0,0,0,1
+            pos_hint: {"x":0.1, "top":0.8}
+            size_hint: 0.35, 0.1
+
+        TextInput:
+            id: email
+            
+            multiline: False
+            pos_hint: {"x": 0.45 , "top":0.8}
+            size_hint: 0.4, 0.1
+
+        Label:
+            text:"Password: "
+            color:0,0,0,1
+            pos_hint: {"x":0.1, "top":0.6}
+            size_hint: 0.35, 0.1
+
+        TextInput:
+            id: password            
+            multiline: False
+            password: True
+            pos_hint: {"x": 0.45, "top":0.6}
+            size_hint: 0.4, 0.1
+
+        MDRectangleFlatButton:
+            pos_hint:{"x":0.4,"y":0.2}
+            size_hint: 0.2, 0.06
+            
+            text: "Login"
+            on_release:
+                root.manager.transition.direction = "up"
+                root.loginButton()
+
+        MDRectangleFlatButton:
+            pos_hint:{"x":0.6,"y":0.3}
+            size_hint: 0.2, 0.08
+            
+            text: "Create One"
+            on_release:
+                root.manager.transition.direction = "right"
+                root.createButton()
+
+        Label:
+            pos_hint:{"x":0.1,"y":0.3}
+            size_hint:0.5,0.08
+            color:0,0,0,1
+            text:"Don't have an Account?"
+
+<NavScreen>
+    name:'main'
+    NavigationDrawer:
+        
+##<MainWindow>:
+##    
+##
+##    FloatLayout:
+##        MDRectangleFlatButton:
+##            pos_hint:{"x":0.2, "y": 0.1}
+##            size_hint:0.6,0.2
+##            text: "Log Out"
+##            on_release:
+##                app.root.current = "login"
+##                root.manager.transition.direction = "down"

@@ -13,7 +13,7 @@ class SpeechLayout(Widget):
         
     def speakOut(self):
         try:
-            
+            print('try')
             text=self.ids.tToS.text
             engine = pyttsx3.init()
             engine.say(text)

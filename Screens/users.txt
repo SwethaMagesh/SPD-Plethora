@@ -1,0 +1,7 @@
+gsd1401@gmail.com;1423;Deepthi;2020-05-08
+panda14@gmail.com;1402;panda;2020-05-08
+swe@gmail.com;swe;swetha;2020-05-09
+mag@gmail.com;mag;mag;2020-05-09
+shri@gmail.com;shri;Shri;2020-05-15
+test@psg.in;test;test;2020-05-15
+d@fire.in;d;swe;2020-05-15

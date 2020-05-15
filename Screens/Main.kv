@@ -1,7 +1,9 @@
+
+
 <NavigationDrawer>:
     
     ScreenManager:
-        id:sm
+        id:navsm
         
         Screen:
             name:'home'
@@ -79,7 +81,7 @@
         id: nav_drawer
         ContentNavigationDrawer:
             id: content_drawer
-            sm:sm
+            navsm:navsm
 
 
 <ContentNavigationDrawer>
@@ -124,44 +126,44 @@
                     text:"HOME"
                     on_press:                        
                         root.parent.set_state("close")
-                        root.sm.current='home'
+                        root.navsm.current='home'
                 OneLineIconListItem:
                     text:"Image Edit"
                     on_press:
                         
                         root.parent.set_state("close")
-                        root.sm.current='img'
+                        root.navsm.current='img'
 
                 OneLineIconListItem:
                     text:"Recognise Text"
                     on_press:                        
                         root.parent.set_state("close")
-                        root.sm.current='ocr'
+                        root.navsm.current='ocr'
                 OneLineIconListItem:
                     text:"Translate"
                     on_press:                       
                         root.parent.set_state("close")
-                        root.sm.current='translate'
+                        root.navsm.current='translate'
 
                 OneLineIconListItem:
                     text:"Text Format and Analyse"
                     on_press:                       
                         root.parent.set_state("close")
-                        root.sm.current='Textformat'
+                        root.navsm.current='Textformat'
                         
                 OneLineIconListItem:
                     text:"Speech Tool"
                     on_press:                        
                         root.parent.set_state("close")
-                        root.sm.current='speech'
+                        root.navsm.current='speech'
                 OneLineIconListItem:
                     text:"Feedback"                    
                     on_press:                        
                         root.parent.set_state("close")
-                        root.sm.current='home'
+                        root.navsm.current='home'
 
                 OneLineIconListItem:
                     text:"Sign out"                    
                     on_press:                        
                         root.parent.set_state("close")
-                        root.sm.current='home'
+                        root.navsm.current='home'
