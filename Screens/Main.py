@@ -7,10 +7,12 @@ Builder.load_file("mytrans.kv")
 Builder.load_file("myTextToText.kv")
 Builder.load_file("imageEdit.kv")
 Builder.load_file("imageText.kv")
+Builder.load_file("speech.kv")
 import TransKivy
 import textToText
 import ImageEdit
 import ImageText
+import audio1
 class NavigationDrawer(NavigationLayout):
     pass
 

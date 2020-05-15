@@ -1,4 +1,4 @@
-<MDRaisedButton>
+<MDRectangleFlatButton>
     size_hint:0.11,0.06
     
 
@@ -16,13 +16,13 @@
             size_hint:0.7,0.3
             pos_hint:{"x":0.05,"top":0.35}
             text:"Here comes the result"
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Copy to clipboard"
             color:1,1,1,1
             size_hint:0.16,0.06
             pos_hint:{"x":0.1,"top":0.65}
             on_press:root.copyClip()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Work on result"
             color:1,1,1,1
             size_hint:0.15,0.06
@@ -35,31 +35,31 @@
             size_hint:0.1,0.06
             color:[0,0,0,1]
            
-        MDRaisedButton:
+        MDRectangleFlatButton:
             pos_hint:{"x":0.25,"top":0.58}
             text:"Upper Case"
             size_hint:0.10,0.06
             color:1,1,1,1
             on_press:root.upperCap()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             pos_hint:{"x":0.37,"top":0.58}
             text:"Lower Case"
             size_hint:0.10,0.06
             color:1,1,1,1
             on_press:root.lowerCap()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             pos_hint:{"x":0.48,"top":0.58}
             text:"Sentence Case"
             color:1,1,1,1
             size_hint:0.14,0.06
             on_press:root.SenCap()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             pos_hint:{"x":0.63,"top":0.58}
             text:"InitCap"
             size_hint:0.11,0.06
             color:1,1,1,1
             on_press:root.InitCap()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             pos_hint:{"x":0.1,"top":0.51}
             text:"Replace"
             color:1,1,1,1
@@ -98,7 +98,7 @@
             size_hint:0.15,0.06
             text:"Ignore Case"
             color:[0,0,0,1]
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Analyse"
             color:1,1,1,1
             size_hint:0.11,0.06

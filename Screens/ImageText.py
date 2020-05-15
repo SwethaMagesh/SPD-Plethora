@@ -20,6 +20,7 @@ class ImageToText(Widget):
         pytesseract.pytesseract.tesseract_cmd=r'C:\Program Files\Tesseract-OCR\tesseract.exe'
         image = Image.open(filename)
         text = pytesseract.image_to_string(image)
+        text=text.replace('\n',' ')
         self.textLbl.text=text
     def SpeechConversion(self):
         if text==" ":

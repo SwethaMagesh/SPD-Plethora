@@ -36,7 +36,7 @@
             value:1
             pos_hint:{"x":0.64,"top":0.55}
             size_hint:0.3,0.05
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Reset"
             pos_hint:{"x":0.93,"top":0.55}
             size_hint:0.05,0.05
@@ -59,7 +59,7 @@
             
             
         
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Browse"
             pos_hint:{"x":0.7,"top":0.97}
             size_hint:0.2,0.07
@@ -73,14 +73,14 @@
             values:['Red','Blue','Green','Purple','Pink','Orange']
             pos_hint:{"x":0.65,"top":0.87}
             size_hint:0.1,0.05
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"View Image"
             pos_hint:{"x":0.8,"top":0.87}
             size_hint:0.1,0.05
             on_press:
                 root.tint()
                 root.Convert()
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Greyscale"
             pos_hint:{"x":0.8,"top":0.8}
             size_hint:0.1,0.05
@@ -93,7 +93,7 @@
             size_hint:0.1,0.05
             
 	    
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Vertical"
             pos_hint:{"x":0.8,"top":0.73}
             size_hint:0.1,0.05
@@ -101,7 +101,7 @@
                 root.flip("v")
                 root.Convert()
             
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Horizontal"
             pos_hint:{"x":0.8,"top":0.66}
             size_hint:0.1,0.05
@@ -109,7 +109,7 @@
                 root.flip("h")
                 root.Convert()
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Negative"
             pos_hint:{"x":0.65,"top":0.8}
             size_hint:0.1,0.05
@@ -117,7 +117,7 @@
                 root.flip("neg")
                 root.Convert()
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Rotate clockwise"
             pos_hint:{"x":0.7,"top":0.22}
             size_hint:0.2,0.05
@@ -125,7 +125,7 @@
                 root.rot90()
                 root.Convert()
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Crop"
             pos_hint:{"x":0.78,"top":0.35}
             size_hint:0.1,0.05
@@ -134,7 +134,7 @@
                 root.Convert()
     
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Work on result"
             pos_hint:{"x":0.7,"top":0.15}
             size_hint:0.2,0.1

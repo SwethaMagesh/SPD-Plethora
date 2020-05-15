@@ -1,5 +1,5 @@
 #: import googletrans googletrans 
-<MDRaisedButton>
+<MDRectangleFlatButton>
     background_color: app.theme_cls.primary_color
 <SpinnerOption>
     background_normal:''
@@ -32,19 +32,19 @@
             values: list(i.capitalize() for i in  googletrans.LANGUAGES.values())
             #values:['English','Tamil','Hindi','Telugu','Malayalam','French']
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:"Copy to clipboard"
             size_hint:0.16,0.06
             pos_hint:{"x":0.43,"top":0.4}
             on_press:root.copyClip()
             
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:'Translate'
             size_hint:0.2,0.06
             pos_hint:{"top":0.4,"x":0.15}
             on_press:root.translate()
 
-        MDRaisedButton:
+        MDRectangleFlatButton:
             text:'Detect Language'
             size_hint:0.2,0.06
             pos_hint:{"top":0.4,"x":0.65}

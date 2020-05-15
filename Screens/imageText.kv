@@ -1,3 +1,6 @@
+<MDRectangleFlatIconButton>
+    custom_color:app.theme_cls.primary_color
+
 <ImageToText>:
     textLbl:textLbl
     label_wid1: my_image1
@@ -6,27 +9,31 @@
         Image:
             id: my_image1
             source:'old.jpg'
-            size_hint:0.6,0.45
-            pos_hint:{"x":0.1,"top":0.95}
-        MDRaisedButton:
+            size_hint:0.45,0.45
+            pos_hint:{"x":0.1,"top":0.98}
+        MDRectangleFlatIconButton:
+            icon:'image'
             text:'Browse'
-            pos_hint:{"x":0.8,"top":0.9}
-            size_hint:0.1,0.05
+            pos_hint:{"x":0.7,"top":0.9}
+            size_hint:0.15,0.05
 	        on_press: root.BrowseImage()
-        MDRaisedButton:
-            text:'Convert'
+        MDRectangleFlatIconButton:
+            icon:'text-recognition'
+            text:'Convert'            
             on_press:root.TextConversion()
-            pos_hint:{"x":0.8,"top":0.8}
-            size_hint:0.1,0.05	
-	    TextInput:
-	        id:textLbl
-	        text:"here comes the result"
-	        size_hint:0.6,0.45 
-	        pos_hint:{"x":0.05,"top":0.45}
-	    MDIconButton:
-	        icon:'text-to-speech'	   
-	        on_release: root.SpeechConversion()     
-	        pos_hint:{"x":0.8,"top":0.7}
+            pos_hint:{"x":0.7,"top":0.8}
+            size_hint:0.15,0.05	
+        TextInput:
+            id:textLbl
+            text:"here comes the result"
+            size_hint:0.45,0.45 
+            pos_hint:{"x":0.1,"top":0.48}
+        MDRectangleFlatIconButton:
+            icon:'text-to-speech'
+            text:'Listen'
+            on_release: root.SpeechConversion()     
+            pos_hint:{"x":0.7,"top":0.7}
+            size_hint:0.15,0.05
 
 <SimplePopup>:
     id:pop

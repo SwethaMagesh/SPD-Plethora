@@ -1,0 +1,69 @@
+<SpeechLayout>
+    FloatLayout:
+        size:root.width,root.height
+        Spinner:
+            id:choice
+            text:'Choose'
+            values:['Text to Speech' , 'Speech to Text']
+            pos_hint:{"x":0.4,"top":0.85}
+            size_hint:0.2,0.05
+            color:0,0,0,1
+            on_text:
+                root.change()
+        ScreenManager:
+            id:sm
+            Screen:
+                name:'first' 
+                MDTextField:
+                    id:tToS
+                    size_hint:0.4,0.3
+                    pos_hint:{"x":0.3,"top":0.7}
+                    multiline:True
+                    hint_text:'Enter text to be read'
+                    required:True
+                    color_mode:'primary'
+                    helper_text:'Please Enter TEXT'
+                    helper_text_mode:'on_error'
+                MDIconButton:
+                    size_hint:0.2,0.05
+                    pos_hint:{"x":0.7,"top":0.55}
+                    #text:"Read out loud"
+                    icon:"volume-high"
+                    user_font_size:"64sp"
+                    background_color:app.theme_cls.primary_color
+                    on_press:root.speakOut()
+                Label:
+                    text:'Read Out Loud'
+                    pos_hint:{"x":0.7,"top":0.45}
+                    size_hint:0.2,0.05
+                    color:0,0,0,1
+
+            Screen:
+                name:'second'    
+                MDIconButton:
+                    size_hint:0.2,0.05
+                    pos_hint:{"x":0.4,"top":0.7}
+                    #text:"Tap to Speak"
+                    user_font_size:"64sp"
+                    icon:'microphone'
+                    on_release:
+                        root.recog()
+
+                Label:
+                    text:'Tap to speak'
+                    pos_hint:{"x":0.4,"top":0.63}
+                    size_hint:0.2,0.05
+                    
+
+                MDTextField:
+                    id:result
+                    size_hint:0.4,0.3
+                    pos_hint:{"x":0.3,"top":0.55}
+                    multiline:True
+                    hint_text:"Here's what you said"
+                    text:'Listening till you stop'
+                    color_mode:'primary'
+                
+            
+            
+            
