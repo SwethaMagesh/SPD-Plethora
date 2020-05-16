@@ -29,6 +29,8 @@ class WindowManager(ScreenManager):
     pass
 
 class NavScreen(Screen):
+    def logOut(self):
+        self.manager.current='login'
     def on_pre_enter(self):
         Window.size = (800, 600)
     pass

@@ -1,9 +1,10 @@
 
-
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
 <NavigationDrawer>:
     
     ScreenManager:
         id:navsm
+        transition:SlideTransition(direction='left')
         
         Screen:
             name:'home'
@@ -166,4 +167,4 @@
                     text:"Sign out"                    
                     on_press:                        
                         root.parent.set_state("close")
-                        root.navsm.current='home'
+                        root.parent.parent.parent.logOut()

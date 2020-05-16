@@ -136,10 +136,18 @@
 
         MDRectangleFlatButton:
             text:"Work on result"
-            pos_hint:{"x":0.7,"top":0.15}
+            pos_hint:{"x":0.75,"top":0.15}
             size_hint:0.2,0.1
             on_press:
                 root.workOn()
+
+        MDRectangleFlatButton:
+            text:"Save"
+            pos_hint:{"x":0.52,"top":0.15}
+            size_hint:0.2,0.1
+            on_press:
+                root.SaveFile()
+
 
         MDSlider:
             id:left
@@ -190,6 +198,10 @@
             hint:False
 
 
+    
+   
+    
+    
             
         
 

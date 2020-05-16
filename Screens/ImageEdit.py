@@ -9,6 +9,9 @@ from kivy.properties import ObjectProperty,StringProperty
 from PIL import Image,ImageOps
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
+from kivymd.toast import toast
+from kivy.uix.gridlayout import GridLayout
+
 
 
 class ImageLayout1(Widget):
@@ -16,6 +19,13 @@ class ImageLayout1(Widget):
     im2=ObjectProperty(None)
     global filename
     filename="1.jpg"
+    def SaveFile(self):  
+##        saved=Image.open('out.jpg')
+##        Image.save(sd.ids.fn.text)
+        toast('Saved successfully in gallery as out.jpg')
+        
+        
+            
 
     def tint(self):
         try:
