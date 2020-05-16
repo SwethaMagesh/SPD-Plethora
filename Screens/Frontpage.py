@@ -17,11 +17,13 @@ Builder.load_file("myTextToText.kv")
 Builder.load_file("imageEdit.kv")
 Builder.load_file("imageText.kv")
 Builder.load_file("speech.kv")
+Builder.load_file("Homepage.kv")
 import TransKivy
 import textToText
 import ImageEdit
 import ImageText
 import audio1
+import Homepage
 db = DataBase("users.txt")
 class WindowManager(ScreenManager):
     pass

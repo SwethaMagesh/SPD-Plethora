@@ -1,0 +1,46 @@
+<HomePage>
+    
+        
+    MDGridLayout:
+        cols:1
+        adaptive_size:True
+        pos_hint:{"x":0.3,"top":0.85 }
+        size:root.width,root.height
+        OneLineListItem:
+            text:"Features available"
+            color:app.theme_cls.primary_color
+            
+    
+        TwoLineIconListItem:
+            text: "Image Editing"
+            secondary_text: "Color filters, greyscale, crop, negative, flip and rotate"
+
+            IconLeftWidget:
+                icon: "image-edit-outline"
+        TwoLineIconListItem:
+            text: "Text recognition - OCR"
+            secondary_text: "Recognises letters and reads out too"
+
+            IconLeftWidget:
+                icon: "text-recognition"
+        TwoLineIconListItem:
+            text: "Translate Text"
+            secondary_text: "Detect language and translate to any Unicode supported languages"
+
+            IconLeftWidget:
+                icon: "translate"
+        TwoLineIconListItem:
+            text: "Format Text"
+            secondary_text: "Capitalise and substitute text with analyse also"
+
+            IconLeftWidget:
+                icon: "text"
+        TwoLineIconListItem:
+            text: "Speech "
+            secondary_text: "Speech to text and vice versa"
+
+            IconLeftWidget:
+                icon: "voice"
+                    
+            
+        

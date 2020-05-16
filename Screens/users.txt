@@ -5,3 +5,5 @@ mag@gmail.com;mag;mag;2020-05-09
 shri@gmail.com;shri;Shri;2020-05-15
 test@psg.in;test;test;2020-05-15
 d@fire.in;d;swe;2020-05-15
+s@s.s;s;s;2020-05-16
+harshini@gmail.com;swe;harshini;2020-05-16
