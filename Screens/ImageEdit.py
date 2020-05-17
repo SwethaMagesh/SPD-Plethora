@@ -4,7 +4,7 @@ import os
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
 import tkinter
-#from tkinter import *
+
 from kivy.properties import ObjectProperty,StringProperty
 from PIL import Image,ImageOps
 from kivy.uix.popup import Popup
@@ -20,8 +20,6 @@ class ImageLayout1(Widget):
     global filename
     filename="1.jpg"
     def SaveFile(self):  
-##        saved=Image.open('out.jpg')
-##        Image.save(sd.ids.fn.text)
         toast('Saved successfully in gallery as out.jpg')
         
         
@@ -36,7 +34,7 @@ class ImageLayout1(Widget):
             imgG=img.convert("L")
             img1=ImageOps.colorize(imgG,black=self.ids.spin.text,white="white")
             img2=img1.save('out.jpg')
-            #self.im2.source='out.jpg'
+        
         except:
             pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
             pop.open()
@@ -53,7 +51,7 @@ class ImageLayout1(Widget):
             img=Image.open(self.filename)
             imgG=img.convert("L")
             img2=imgG.save('out.jpg')
-            #self.im2.source='out.jpg'
+           
         except:
             pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
             pop.open()
@@ -74,7 +72,7 @@ class ImageLayout1(Widget):
                 img1=ImageOps.invert(img)
             img2=img1.save('out.jpg')
             
-            #self.im2.source='out.jpg'
+           
 
         except:
             pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
@@ -161,11 +159,4 @@ class ImageLayout1(Widget):
             pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
             pop.open()
     
-        
-##class imageEditApp(MDApp):
-##    
-##    def build(self):
-##        self.theme_cls.primary_palette = "Pink"
-##        return ImageLayout1()
-##    
-##imageEditApp().run()
+

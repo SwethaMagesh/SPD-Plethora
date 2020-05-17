@@ -8,8 +8,9 @@ from kivymd.theming import ThemeManager
 from database import DataBase
 from kivy.config import Config
 from kivy.core.window import Window
-#Window.size = (400, 400)
+
 Config.set('graphics','resizable',0)
+
 Builder.load_file('Main.kv')
 import MainNav
 Builder.load_file("mytrans.kv")
@@ -25,6 +26,8 @@ import ImageText
 import audio1
 import Homepage
 db = DataBase("users.txt")
+
+
 class WindowManager(ScreenManager):
     pass
 
@@ -34,6 +37,8 @@ class NavScreen(Screen):
     def on_pre_enter(self):
         Window.size = (800, 600)
     pass
+
+
 class CreateAccountWindow(Screen):
     namee = ObjectProperty(None)
     email = ObjectProperty(None)
@@ -88,16 +93,6 @@ class LoginWindow(Screen):
         self.email.text = ""
         self.password.text = ""
 
-##
-##class MainWindow(Screen):
-##
-##    def logOut(self):
-##        self.manager.current = "login"
-##
-##    def on_enter(self, *args):
-##        self.manager.current="main"
-
-
 
 
 
@@ -115,14 +110,6 @@ def invalidForm():
 
     pop.open()
 
-    
-
-
-##sm = WindowManager()
-##screens = [LoginWindow(name="login"), CreateAccountWindow(name="create"),NavScreen(name="main")]
-##for screen in screens:
-##    sm.add_widget(screen)
-##self.manager.current = "login"
 
 
 class LoginApp(MDApp):

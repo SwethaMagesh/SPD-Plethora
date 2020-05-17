@@ -13,7 +13,7 @@ from kivy.uix.label import Label
 def get_key(val): 
     for key, value in googletrans.LANGUAGES.items(): 
          if val.lower() == value.lower():
-             print(key)
+             #print(key)
              return key 
   
     return "error"
@@ -61,12 +61,3 @@ class TransLayout(Widget):
             
         
     
-
-##                
-##class myTransApp(MDApp):   
-##    def build(self):
-##        self.theme_cls.primary_palette = "Pink"
-##        return TransLayout()
-##
-##
-##myTransApp().run()

@@ -7,3 +7,5 @@ test@psg.in;test;test;2020-05-15
 d@fire.in;d;swe;2020-05-15
 s@s.s;s;s;2020-05-16
 harshini@gmail.com;swe;harshini;2020-05-16
+ds@hack.in;ds;ds;2020-05-16
+swethamag.2000@gmail.com;pass;Swetha;2020-05-17

@@ -49,7 +49,6 @@ class TEXTFormatLayout(Widget):
                     for i in range(len(x)):
                         if x[i].lower()==find.lower():
                             x[i]=rep
-                        print(x[i])
                     res=' '.join(x)
                     
 
@@ -73,18 +72,3 @@ class TEXTFormatLayout(Widget):
             pop=Popup(title='Some error occurred',content=Label(text='Try again',color=(1,1,1,1)),size_hint=(None,None),size=(350,100))
             pop.open()
             
-##        
-##
-##
-##    
-##class MyTextToTextApp(MDApp):   
-##    def __init__(self, **kwargs):
-##        super().__init__(**kwargs)
-##        self.theme_cls.primary_palette = "Pink"
-##        self.title="Plethora"    
-##    def build(self):        
-##        return TEXTFormatLayout()
-##    
-##
-##if __name__=='__main__':
-##    MyTextToTextApp().run()
