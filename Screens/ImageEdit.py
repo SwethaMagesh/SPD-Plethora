@@ -3,16 +3,52 @@ from kivy.uix.widget import Widget
 import os
 from kivy.uix.label import Label
 from kivy.uix.popup import Popup
-import tkinter
-
 from kivy.properties import ObjectProperty,StringProperty
 from PIL import Image,ImageOps
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
 from kivymd.toast import toast
 from kivy.uix.gridlayout import GridLayout
+global filename
+import tkinter as tk
+#from tkinter import *
+from tkinter import ttk
+from tkinter import filedialog 
 
+global root
+global flag
+flag=0
+def createTkinter():
+    global root
+    root=tk.Tk()
+    from tkinter import Label,Button
+    root.title('Browsing a file')
+    root.tk.call('wm','iconphoto',root._w,tk.PhotoImage(file='icon.png'))
+    root.geometry("400x100+300+300")
+    w=tk.Label(root,text="You will be prompted to choose any pictures from your \n device's storage.Click OK to continue",font="Helvetica 18 bold")
+    w.grid(row=0,column=0)
+    w.configure(font=("Courier", 8, "bold"))
+    w=Button(root,text='Ok',fg='#e75480',borderwidth=4,width=15,command=lambda:open_file())
+    w.grid(row=3,column=0)
+    w=Button(root,text='Cancel',fg='#e75480',borderwidth=4,width=15,command=lambda:Close_file())
+    w.grid(row=6,column=0)
 
+def Close_file():
+    global root
+    global flag
+    root.destroy()
+    flag=0
+
+def open_file():
+    global flag
+    global root
+    global filename    
+    filename= filedialog.askopenfilename(initialdir="/",title="Select A file",filetype=(("jpeg files","*.jpg"),("all files","*.*")))
+    if filename=="":
+        flag=0
+    else:
+        flag=1
+    root.destroy()
 
 class ImageLayout1(Widget):
     im1=ObjectProperty(None)
@@ -105,16 +141,14 @@ class ImageLayout1(Widget):
             
         
     def browse(self):
-        try:
-            
-            global filename
-            from tkinter import ttk
-            from tkinter import filedialog           
-            self.filename= filedialog.askopenfilename(initialdir="/",title="Select A file",filetype=(("jpeg files","*.jpg"),("all files","*.*")))
-            self.im1.source=self.filename
-        except:
-            pop=Popup(title='Some error occurred',content=Label(text='Try again'),size_hint=(None,None),size=(350,100))
-            pop.open()
+        global filename
+        global flag
+        createTkinter()
+        tk.mainloop()
+        #filename= filedialog.askopenfilename(initialdir="/",title="Select A file",filetype=(("jpeg files","*.jpg"),("all files","*.*")))
+        #self.label.configure(text=self.filename)
+        if flag==1:
+            self.im1.source=filename
             
 
     def resetSlider(self):
