@@ -53,7 +53,7 @@ class CreateAccountWindow(Screen):
             if self.password.text != "":
                 db.add_user(self.email.text.strip(), self.password.text.strip(), self.namee.text.strip())
                 self.reset()
-                self.manager.current = "login"
+                self.manager.current = "main"
             else:
                 invalidForm()
         else:
