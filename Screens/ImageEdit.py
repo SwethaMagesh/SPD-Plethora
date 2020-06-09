@@ -49,6 +49,10 @@ def open_file():
     else:
         flag=1
     root.destroy()
+    
+def returnfn():
+    global filename
+    return filename
 
 class ImageLayout1(Widget):
     im1=ObjectProperty(None)
@@ -145,10 +149,11 @@ class ImageLayout1(Widget):
         global flag
         createTkinter()
         tk.mainloop()
+        self.filename=returnfn()
         #filename= filedialog.askopenfilename(initialdir="/",title="Select A file",filetype=(("jpeg files","*.jpg"),("all files","*.*")))
         #self.label.configure(text=self.filename)
         if flag==1:
-            self.im1.source=filename
+            self.im1.source=self.filename
             
 
     def resetSlider(self):

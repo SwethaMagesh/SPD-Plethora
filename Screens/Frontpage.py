@@ -10,7 +10,7 @@ from kivy.config import Config
 from kivy.core.window import Window
 
 Config.set('graphics','resizable',0)
-
+Config.set('kivy','window_icon','plethora.png')
 Builder.load_file('Main.kv')
 import MainNav
 Builder.load_file("mytrans.kv")
