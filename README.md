@@ -1,6 +1,6 @@
 # SPD Plethora 
 
-- This app has various functions
+ This app has various functions
   1. image editing
   1. image to text conversion
   1. text formatting
@@ -9,5 +9,5 @@
   1. speech to text
 
 ___
-***This is a utility app**
-> Designed on Windows but intended for android
+**This is a utility app**
+> *Designed on Windows but intended for android*
