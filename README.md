@@ -1,12 +1,12 @@
 # SPD Plethora 
 
  This app has various functions
-  1. image editing
-  1. image to text conversion
-  1. text formatting
-  1. analysis of text
+  1. Image editing
+  1. Image to text conversion
+  1. Text formatting
+  1. Analysis of text
   1. Text to speech 
-  1. speech to text
+  1. Speech to text
 
 ___
 **This is a utility app**
